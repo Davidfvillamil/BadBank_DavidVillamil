@@ -40,7 +40,11 @@ function App() {
     
       <Router>
         <Navbar/>
-          
+        <Routes>
+            <Route path='/' element = {<Home></Home>}/>
+            <Route path='/home' element = {<Home></Home>}/>
+            
+          </Routes>
       </Router>
       
     </FormContext.Provider>
