@@ -43,7 +43,7 @@ function App() {
         <Routes>
             <Route path='/' element = {<Home></Home>}/>
             <Route path='/home' element = {<Home></Home>}/>
-            
+            <Route path='/login' element = {<Login usuarios = {usuarios} setUsuarios = {setUsuarios}usuarioActivo = {usuarioActivo} setUsuarioActivo = {setUsuarioActivo}></Login>}/>
           </Routes>
       </Router>
       
