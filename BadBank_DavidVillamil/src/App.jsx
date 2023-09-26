@@ -47,6 +47,7 @@ function App() {
             <Route path='/createaccount' element = {<Createaccount usuarios = {usuarios} setUsuarios = {setUsuarios}></Createaccount>}></Route>
             <Route path='/deposit' element = {<Deposit balance ={balance} setBalance={setBalance} transactions = {transctions} setTransactions = {setTransactions} addTrasaction ={handletransaction} usuarios = {usuarios} setUsuarios = {setUsuarios}></Deposit>}></Route>
             <Route path='/withdraw' element = {<Withdraw balance ={balance} setBalance={setBalance}addTrasaction ={handletransaction}></Withdraw>}></Route>
+            <Route path='/alldata' element = {<Alldata balance ={balance} setBalance={setBalance} transactions = {transctions} setTransactions = {setTransactions} addTrasacition ={handletransaction}></Alldata>}></Route>
           </Routes>
       </Router>
       
