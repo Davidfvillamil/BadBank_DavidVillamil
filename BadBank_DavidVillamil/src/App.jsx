@@ -3,32 +3,47 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+//import del Router
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+// Componentes 
+import { Navbar } from './components/Navbar'
+import { Login } from './components/Login'
+import { Createaccount } from './components/Createaccount'
+import { Balance } from './components/Balance'
+import { Deposit } from './components/Deposit'
+import { Withdraw } from './components/withdraw'
+import { Alldata } from './components/Alldata'
+import { Home } from './components/home'
+
+//Contextos
+import { FormContext, FormCard } from './context.jsx/context'
+
+
+
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const[balance,setBalance] = useState(0)
+  const[transctions, setTransactions] = useState([])
+
+  const handletransaction = (transaction) => {
+    setTransactions([...transctions,transaction])
+  }
+
+  const [usuarios, setUsuarios] = useState([])
+  const [usuarioActivo, setUsuarioActivo] = useState('')
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <FormContext.Provider value={''}>
+    
+      <Router>
+        <Navbar/>
+          
+      </Router>
+      
+    </FormContext.Provider>
   )
 }
 
