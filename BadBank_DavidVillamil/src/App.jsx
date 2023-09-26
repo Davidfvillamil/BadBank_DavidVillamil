@@ -44,6 +44,7 @@ function App() {
             <Route path='/' element = {<Home></Home>}/>
             <Route path='/home' element = {<Home></Home>}/>
             <Route path='/login' element = {<Login usuarios = {usuarios} setUsuarios = {setUsuarios}usuarioActivo = {usuarioActivo} setUsuarioActivo = {setUsuarioActivo}></Login>}/>
+            <Route path='/createaccount' element = {<Createaccount usuarios = {usuarios} setUsuarios = {setUsuarios}></Createaccount>}></Route>
           </Routes>
       </Router>
       
