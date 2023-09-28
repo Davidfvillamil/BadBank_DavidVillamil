@@ -26,7 +26,7 @@ const Createaccount = ({usuarios,setUsuarios}) => {
 
     function validate (field, label) {
         if (!field) {
-            setStatus('Ingrese correctamente su '+ label)
+            setStatus('No puede dejar en blanco el '+ label + ' ingrese correctamente un: ' + label)
             setTimeout(() => setStatus(''),3000)
             return false
         }
@@ -34,8 +34,8 @@ const Createaccount = ({usuarios,setUsuarios}) => {
     }
 
     function handleCreate () {
-        console.log(name,email,password)
-        if(!validate(name,'name')) return
+        
+        if(!validate(name,'nombre')) return
         if(!validate(email,'email')) return
         if(!validate(password,'password')) return
         usuarios.push({name,email,password})
@@ -140,7 +140,7 @@ const Createaccount = ({usuarios,setUsuarios}) => {
                         ):(
                             <>
                                 <h4>¡You have succesfully created an account !</h4>
-                                <button type = 'submit' className = 'btn btn-light' onClick = {clearForm} style={{backgroundColor: '#dd3f51 ', color: 'white'}}>Add Another Account</button>
+                                <button type = 'submit' className = 'btn btn-light' onClick = {clearForm} style={{backgroundColor: '#dd3f51', color: 'white'}}>Add Another Account</button>
                                 <div className="contenedor-image-success">
                                     <div src="../images/video.mp4" alt="" className="imagen-success-create-account"/>
                                 </div>
