@@ -5,13 +5,13 @@ const Alldata = ({transactions}) => {
     return (
         <div className="contenedor-tabla-externo">
             <div className="contenedor-tabla-interno">
-                <h2>Registro de Transacciones</h2>
+                <h2>Transactions tracking</h2>
                 <table className="table tabla">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Transacción</th>
-                        <th scope="col">Monto</th>
+                        <th scope="col">Transaction</th>
+                        <th scope="col">Amount</th>
                         <th scope="col">Balance</th>
                     </tr>
                     </thead>

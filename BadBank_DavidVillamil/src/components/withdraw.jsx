@@ -32,17 +32,17 @@ const Withdraw = ({balance,setBalance,addTrasaction}) => {
         
         if (!isNaN(withdrawValue) && withdrawValue > 0 && balance - withdrawValue >= 0) {
             setBalance(prevBalance => prevBalance - withdrawValue);
-            Mensaje('¡Retiro exitoso!')
+            Mensaje('¡successful money withdrawal!')
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
             addTrasaction({tipo: 'Retiro', monto: withdrawValue, balance: balance - withdrawValue})
         }else if(withdrawValue.toString().includes('-')){
-            Mensaje('El valor no puede ser negativo')
+            Mensaje('You can not enter negative numbers')
             setStatus(false)
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
         }else if(balance - withdrawValue < 0){
-            Mensaje('No puedes retirar más de lo que tienes')
+            Mensaje('the amount exceeds the account resources')
             setStatus(false)
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
@@ -60,12 +60,11 @@ const Withdraw = ({balance,setBalance,addTrasaction}) => {
                             <div>
                                 <h1>David Villamil</h1> <br />
                                 <div className="contenedor-balance">
-                                    <h6>Tu balance</h6>
+                                    <h6>Your balance</h6>
                                     <h3>US $ {balance}</h3>
                                 </div>
                                 <h3>Withdraw</h3>
-                                <h6>Escoge una suma</h6>
-                                
+                                <h6>Enter withdraw amount</h6>
                                 <input type="number" value={withdrawAmount} onChange={handleDeposit}/>
                                 <button className = 'btn'onClick={handleClick} disabled = {!withdrawAmount}style={{backgroundColor: '#dd3f51 ', color: 'white', marginTop: '10px'}}>Withdraw</button>
                                 

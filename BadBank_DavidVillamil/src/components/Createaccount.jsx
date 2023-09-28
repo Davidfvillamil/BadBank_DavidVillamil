@@ -26,7 +26,7 @@ const Createaccount = ({usuarios,setUsuarios}) => {
 
     function validate (field, label) {
         if (!field) {
-            setStatus('No puede dejar en blanco el '+ label + ' ingrese correctamente un: ' + label)
+            setStatus('Enter a valid '+ label)
             setTimeout(() => setStatus(''),3000)
             return false
         }
@@ -49,10 +49,10 @@ const Createaccount = ({usuarios,setUsuarios}) => {
         setName(inputValue); // Primero actualizamos el estado
 
         if (inputValue.includes("@")) {
-            setErrorName('El nombre no puede contener @');
+            setErrorName('Name can not contain @');
             setErrorNameStatus(true)
         }else if (inputValue.match(/[0-9]/)){
-            setErrorName('El nombre no puede contener numeros')
+            setErrorName('Name can not contain numbers')
             setErrorNameStatus(true)
         }else{
             setErrorName('')
@@ -65,7 +65,7 @@ const Createaccount = ({usuarios,setUsuarios}) => {
         setEmail(inputValue); 
 
         if (!inputValue.includes("@")) {
-            setErrorEmail('ingrese un correo electronico valido');
+            setErrorEmail('Enter a valid email');
             setErrorEmailStatus(true)
             setTimeout(() => setErrorEmail(''),2000)
         }else{
@@ -82,7 +82,7 @@ const Createaccount = ({usuarios,setUsuarios}) => {
             setErrorPassword('')
             setErrorPasswordStatus(false)
         }else{
-            setErrorPassword('la contraseña no puede contener menosde 8 caracteres')
+            setErrorPassword('Password can not contain less than 8 characters')
             setTimeout(() => setErrorPassword(''),2000)
             setErrorPasswordStatus(true)
         }

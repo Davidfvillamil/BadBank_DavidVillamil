@@ -24,13 +24,13 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
         if (!isNaN(depositValue) && depositValue > 0) {
             setBalance(prevBalance => prevBalance + depositValue);
             setStatus(true)
-            setMensaje('Transacción aprovada')
+            setMensaje('Approved Transaction')
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
             addTrasaction({tipo: 'Deposito', monto: depositValue, balance: balance + depositValue})
         }else if(depositValue.toString().includes('-')){
             setStatus(false)
-            setMensaje('El valor no puede ser negativo')
+            setMensaje('You can not enter negative numbers')
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
             
@@ -53,11 +53,11 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
                                     David Villamil 
                                 </h1> <br />
                                 <div className="contenedor-balance">
-                                    <h6>Tu balance</h6>
+                                    <h6>Your Balance</h6>
                                     <h3>US $ {balance}</h3>
                                 </div>
                                 <h3>Deposit</h3>
-                                <h6>Escoge una suma</h6>
+                                <h6>Enter deposit amount</h6>
                                 <input type="number" value={depositAmount} onChange={handleDeposit} placeholder="ingrese un valor"/>
                                 <button className = 'btn boton-deposit'onClick={handleClick} disabled ={!depositAmount} style={{backgroundColor: '#dd3f51 ', color: 'white', marginTop: '10px', marginBottom: '10px'}}>Deposit</button>
                             </div>
