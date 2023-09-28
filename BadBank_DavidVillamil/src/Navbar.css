@@ -51,3 +51,16 @@
   font-weight: bold;
 }
 
+.nav-NavLink{
+  position: relative;
+}
+
+.contenedor-hermano{
+  position: absolute;
+  background-color: aliceblue;
+  border-radius: 8px;
+  color: black;
+  font-size: 10px;
+  padding: 8px;
+  z-index: 10;
+}
