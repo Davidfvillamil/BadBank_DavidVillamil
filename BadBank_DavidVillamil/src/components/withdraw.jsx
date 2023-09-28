@@ -35,7 +35,7 @@ const Withdraw = ({balance,setBalance,addTrasaction}) => {
             Mensaje('¡successful money withdrawal!')
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
-            addTrasaction({tipo: 'Retiro', monto: withdrawValue, balance: balance - withdrawValue})
+            addTrasaction({tipo: 'Withdraw', monto: withdrawValue, balance: balance - withdrawValue})
         }else if(withdrawValue.toString().includes('-')){
             Mensaje('You can not enter negative numbers')
             setStatus(false)

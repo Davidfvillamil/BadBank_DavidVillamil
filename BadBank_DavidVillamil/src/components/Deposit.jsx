@@ -27,7 +27,7 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
             setMensaje('Approved Transaction')
             setTimeout(() => setStatus(false),2000)
             setTimeout(() => setMensaje(''),2000)
-            addTrasaction({tipo: 'Deposito', monto: depositValue, balance: balance + depositValue})
+            addTrasaction({tipo: 'Deposit', monto: depositValue, balance: balance + depositValue})
         }else if(depositValue.toString().includes('-')){
             setStatus(false)
             setMensaje('You can not enter negative numbers')
