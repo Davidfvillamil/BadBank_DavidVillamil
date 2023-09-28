@@ -16,7 +16,7 @@ const Home = () => {
                 </video>
             </div>
             <div className="contendor-interno">
-                
+                <h3 className="Mensaje-bienvenida">Bienvenido a tu banco de desconfianza</h3>
                 <div className="imagen-banco-home"></div>
                 <div className="contenedor-botones-home">
                     <NavLink to={'/login'}>
