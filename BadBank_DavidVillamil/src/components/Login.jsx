@@ -20,7 +20,7 @@ const Login = ({usuarios}) => {
 
     function validate (field, label) {
         if (!field) {
-            setStatus('Ingrese correctamente su '+ label)
+            setStatus('Enter correctly your '+ label)
             setTimeout(() => setStatus(''),3000)
             return false
         }
@@ -38,10 +38,10 @@ const Login = ({usuarios}) => {
         const passwordExistente = usuarios.find(usuario => usuario.password === password)
 
         if (!usuarioExistente) {
-            setErrorName('El usuario no existe');
+            setErrorName('Username does not exist');
             setTimeout(() => setErrorName(''),3000)
         } else if(!passwordExistente) {
-            setErrorName('Nombre de usuario o password incorrectos');
+            setErrorName('User name or password invalid, try again');
             setTimeout(() => setErrorName(''),3000)
         }else{
 
@@ -55,10 +55,10 @@ const Login = ({usuarios}) => {
         const inputValue = e.currentTarget.value;
         setName(inputValue); // Primero actualizamos el estado
         if (inputValue.includes("@")) {
-            setErrorName('El nombre no puede contener @');
+            setErrorName('Name can not contain @ ');
             setErrorNameStatus(true)
         }else if (inputValue.match(/[0-9]/)){
-            setErrorName('El nombre no puede contener numeros')
+            setErrorName('Name can not contain numbers')
             setErrorNameStatus(true)
         }else{
             setErrorName('')
@@ -75,7 +75,7 @@ const Login = ({usuarios}) => {
             setErrorPassword('')
             setErrorPasswordStatus(false)
         }else{
-            setErrorPassword('la contraseña no puede contener menosde 8 caracteres')
+            setErrorPassword('Password can not contain less than 8 characters')
             setTimeout(() => setErrorPassword(''),2000)
             setErrorPasswordStatus(true)
         }
@@ -116,11 +116,11 @@ const Login = ({usuarios}) => {
                         </>
                     ):(
                         <>
-                            <h4>Bievenido</h4><h4 style={{color:'green'}}>{name}</h4> 
+                            <h4>Welcome</h4><h4 style={{color:'green'}}>{name}</h4> 
                             <div className="contenedor-success-image-login">
                                         <div src="../images/loginsucces.png" alt="" className="imagen-dibujo-success-login"/>
                             </div>
-                            <h3>¿Qué quieres hacer ahora?</h3>
+                            <h3>What do you want to do next?</h3>
                             <div className="contenedor-botones-success-login">
                                 <NavLink to={'/deposit'}>
                                     <button type="button" className="btn" style={{backgroundColor: '#dd3f51 ', color: 'white'}}>Deposit</button>
