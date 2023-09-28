@@ -67,7 +67,7 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
                                 </>  
                             ):(
                                 <>
-                                <h5 className="mensaje-de-rechazo"style={{color: 'red', fontSize: '20px'}}>{mensaje}</h5>
+                                <h5 className="mensaje-de-rechazo">{mensaje}</h5>
                                 </>  
                             )}
                             

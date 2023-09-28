@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 //Estilos
 import '../Styles/Deposit.css'
+import '../Styles/withdraw.css'
 import { FormCard } from "../context.jsx/context";
 
 //Contextos
@@ -26,17 +27,25 @@ const Withdraw = ({balance,setBalance,addTrasaction}) => {
         function Mensaje(mensaje){
             setStatus(true)
             setMensaje(mensaje)
-            setTimeout(() => setStatus(false),2000)
+            
         }
         
         if (!isNaN(withdrawValue) && withdrawValue > 0 && balance - withdrawValue >= 0) {
             setBalance(prevBalance => prevBalance - withdrawValue);
-            Mensaje('retiro exitoso')
+            Mensaje('¡Retiro exitoso!')
+            setTimeout(() => setStatus(false),2000)
+            setTimeout(() => setMensaje(''),2000)
             addTrasaction({tipo: 'Retiro', monto: withdrawValue, balance: balance - withdrawValue})
         }else if(withdrawValue.toString().includes('-')){
             Mensaje('El valor no puede ser negativo')
+            setStatus(false)
+            setTimeout(() => setStatus(false),2000)
+            setTimeout(() => setMensaje(''),2000)
         }else if(balance - withdrawValue < 0){
             Mensaje('No puedes retirar más de lo que tienes')
+            setStatus(false)
+            setTimeout(() => setStatus(false),2000)
+            setTimeout(() => setMensaje(''),2000)
         }
     }
 
@@ -61,8 +70,10 @@ const Withdraw = ({balance,setBalance,addTrasaction}) => {
                                 <button className = 'btn'onClick={handleClick} disabled = {!withdrawAmount}style={{backgroundColor: '#dd3f51 ', color: 'white', marginTop: '10px'}}>Withdraw</button>
                                 
                             </div>
-                            {Status && (
-                                <h5>{mensaje}</h5>
+                            {Status ? (
+                                <h5 className="mensaje-retiro-exitoso">{mensaje}</h5>
+                            ):(
+                                <h5 className="mensaje-de-negacion">{mensaje}</h5>
                             )}
                             
                         </>

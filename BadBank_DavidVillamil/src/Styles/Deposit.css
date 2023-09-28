@@ -22,6 +22,12 @@
     padding-top: 20px;
 }
 
+.mensaje-de-rechazo{
+    color: red;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
 .contenedor-deposit{
     background-color: #06244c;
 }
