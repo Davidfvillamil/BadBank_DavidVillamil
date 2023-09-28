@@ -18,7 +18,8 @@
 
 .mensaje-de-aprovado{
     color: green;
-    margin-top: 20px;
+    font-size: 20px;
+    padding-top: 20px;
 }
 
 .contenedor-deposit{

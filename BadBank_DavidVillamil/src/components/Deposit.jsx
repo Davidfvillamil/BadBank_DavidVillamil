@@ -26,11 +26,14 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
             setStatus(true)
             setMensaje('Transacción aprovada')
             setTimeout(() => setStatus(false),2000)
+            setTimeout(() => setMensaje(''),2000)
             addTrasaction({tipo: 'Deposito', monto: depositValue, balance: balance + depositValue})
         }else if(depositValue.toString().includes('-')){
-            setStatus(true)
+            setStatus(false)
             setMensaje('El valor no puede ser negativo')
             setTimeout(() => setStatus(false),2000)
+            setTimeout(() => setMensaje(''),2000)
+            
         }
     }
 
@@ -56,11 +59,15 @@ const Deposit = ({balance,setBalance,addTrasaction,usuarios}) => {
                                 <h3>Deposit</h3>
                                 <h6>Escoge una suma</h6>
                                 <input type="number" value={depositAmount} onChange={handleDeposit} placeholder="ingrese un valor"/>
-                                <button className = 'btn boton-deposit'onClick={handleClick} disabled ={!depositAmount} style={{backgroundColor: '#dd3f51 ', color: 'white', marginTop: '10px'}}>Deposit</button>
+                                <button className = 'btn boton-deposit'onClick={handleClick} disabled ={!depositAmount} style={{backgroundColor: '#dd3f51 ', color: 'white', marginTop: '10px', marginBottom: '10px'}}>Deposit</button>
                             </div>
-                            {Status && (
+                            {Status ? (
                                 <>
-                                <h5 className="mensaje-de-aprovado">{mensaje}</h5>
+                                <h5 className="mensaje-de-aprovado" >{mensaje}</h5>
+                                </>  
+                            ):(
+                                <>
+                                <h5 className="mensaje-de-rechazo"style={{color: 'red', fontSize: '20px'}}>{mensaje}</h5>
                                 </>  
                             )}
                             
